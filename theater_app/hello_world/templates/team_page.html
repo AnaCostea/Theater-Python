@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Team</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+<!--<link rel="stylesheet" href="static/css/styles2.css" type="text/css" media="screen" />-->
+    {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<div id="container">
+  <!-- Start of Page Title -->
+  <div id="page_title">
+    <h1><span>National Theater</span></h1>
+  </div>
+  <!-- End of Page Title -->
+  <!-- Start of Left Column -->
+  <div id="left_column">
+    <div id="page_image">&nbsp;</div>
+    <!-- Start of Page Menu -->
+    <div id="page_menu">
+      <ul>
+       <li id="menu1"><a href="/"><span>Home</span></a></li>
+        <li id="menu2"><a href="/play"><span>Plays</span></a></li>
+        <li id="menu3"><a href="/team"><span>Team</span></a></li>
+        <li id="menu4"><a href="/gallery"><span>Gallery</span></a></li>
+        <li id="menu5"><a href="/tickets"><span>Tickets</span></a></li>
+                  <li id="menu6"><a href="/reviews"><span>Reviews</span></a></li>
+      </ul>
+      <div class="clearthis">&nbsp;</div>
+    </div>
+    <!-- End of Page Menu -->
+  </div>
+  <!-- End of Left Column -->
+  <!-- Start of Right Column -->
+  <div id="right_column">
+      <div id="latestvideo"><h2><span>Latest Video</span></h2></div>
+      <br>
+      <div><img src="/static/images/team.png" width="220" height="80"></div>
+<br><br>
+
+{% if actors %}
+        {% for actor in actors %}
+            <p><strong>First Name:</strong> {{ actor.first_name }}</p>
+            <p><strong>Last Name:</strong> {{ actor.last_name }}</p>
+            <p><strong>Date of Birth:</strong> {{ actor.date_of_birth }}</p>
+            <p><strong>Place of Birth:</strong> {{ actor.place_of_birth }}</p>
+            <div><img src="/static/images/{{ actor.first_name }}.png" width="260" height="250" alt = "{{ actor.first_name }}"></div>
+      <br><br>
+
+        {% endfor %}
+
+
+{% else %}
+        <p>No actor is available.</p>
+{% endif %}
+
+
+  </div>
+  <!-- End of Right Column -->
+  <!-- Start of Page Footer -->
+  <div id="page_footer">Contact us at <a href="https://www.teatrulnationalcluj.ro/">National Theater Cluj-Napoca</a></div>
+  <!-- End of Page Footer -->
+</div>
+</body>
+</html>
